@@ -45,6 +45,8 @@ model.add(Activation('softmax'))
 
 ## References
 [1] Yang Song, Ali Elkahky, and Xiaodong He, Multi-Rate Deep Learning for Temporal Recommendation, in SIGIR 2016.
+
 [2] Ali Mamdouh Elkahky, Yang Song, and Xiaodong He, A Multi-View Deep Learning Approach for User Modeling in Recommendation Systems, in WWW 2015.
+
 [3] Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li Deng, Alex Acero and Larry Heck, Learning Deep Structured Semantic Models for Web Search using Clickthrough Data, in CIKM 2013.
 
