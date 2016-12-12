@@ -1,6 +1,6 @@
 # Keras Implementation of Deep Structured Semantic Model (DSSM)
 
-This library contains a modified version of Keras (mostly in the layers/core.py) to implement DSSM, Multi-View DSSM (MV-DSSM) and Temporal DSSM (TDSSM).
+This library contains a modified version of Keras (mostly in the layers/core.py) to implement DSSM, Multi-View DSSM (MV-DSSM), Temporal DSSM (TDSSM) and matrix factorization (MF).
 
 The examples can be found in the examples/ folder.
 
@@ -16,10 +16,30 @@ tempmodel.add(LSTM(tempFea,300))
 model=Sequential()
 model.add(Merge([staticmodel, tempmodel],mode='concat'))
 model.add(Dense(300+300,300))
-model.add(Activation('tanh')) 
+model.add(Activation('tanh'))
 ```
 
 ### DSSM and Multi-view DSSM
+```python
+userModel = Sequential()
+userModel.add(Dense(3883, 300))
+userModel.add(Activation('tanh'))
+userModel.add(Dropout(0.4))
+userModel.add(Dense(300, 300))
+userModel.add(Activation('tanh'))
+
+itemModel = Sequential()
+itemModel.add(TimeDistributedDense(6039, 300))
+itemModel.add(Activation('tanh'))
+itemModel.add(Dropout(0.4))
+itemModel.add(TimeDistributedDense(300, 300))
+itemModel.add(Activation('tanh'))
+
+model=Sequential()
+model.add(Cosine([userModel,itemModel])) #should output 2 values
+model.add(Reshape(2))
+```
+### Matrix Factorization on MovieLens
 ```python
 serModel = Sequential()
 userModel.add(Dense(1682, 500))
@@ -35,7 +55,7 @@ itemModel.add(Dropout(0.4))
 itemModel.add(TimeDistributedDense(500, 500))
 itemModel.add(Activation('tanh'))
 model=Sequential()
-model.add(ElementMul([userModel,itemModel])) #should output 2 values 
+model.add(ElementMul([userModel,itemModel])) #should output 2 values
 model.add(TimeDistributedDense(500, 1))
 model.add(Reshape(2))
 y_score= model.get_output(train=False)
