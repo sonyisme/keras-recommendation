@@ -5,6 +5,7 @@ This library contains a modified version of Keras (mostly in the layers/core.py)
 The examples can be found in the examples/ folder.
 
 Contact: Yang Song (sonyisme AT google dot com)
+
 Homepage: http://sonyis.me
 
 ## Examples
