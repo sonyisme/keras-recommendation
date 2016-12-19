@@ -1,8 +1,11 @@
-# Keras Implementation of Deep Structured Semantic Model (DSSM)
+# Keras Implementation of Recommender Systems
 
-This library contains a modified version of Keras (mostly in the layers/core.py) to implement DSSM, Multi-View DSSM (MV-DSSM), Temporal DSSM (TDSSM) and matrix factorization (MF).
+This library contains a modified version of Keras (mostly in the layers/core.py) to implement various recommender systems, including the Deep Structured Semantic Model (DSSM), Multi-View DSSM (MV-DSSM), Temporal DSSM (TDSSM) and matrix factorization (MF).
 
 The examples can be found in the examples/ folder.
+
+Contact: Yang Song (sonyisme AT google dot com)
+Homepage: http://sonyis.me
 
 ## Examples
 
